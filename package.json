@@ -4,7 +4,8 @@
   "description": "Mongo helper",
   "main": "index.js",
   "scripts": {
-    "postinstall": "babel mongo.js > index.js"
+    "build": "babel mongo.js > index.js",
+    "postinstall": "npm run build"
   },
   "author": "Brian <bmancini@gmail.com>",
   "license": "MIT",
