@@ -3,17 +3,6 @@ A simple MongoDB client manager compatible with async/await functions.
 
 ## Usage
 
-Connecting to MongoDB outside an async function:
-```javascript
-import mongo from 'mongo-async';
-const mongoUrl = 'mongodb://localhost/mydb'
-
-mongo
-  .connect(mongoUrl)
-  .then(db => console.log(`Connected to ${config.mongodb}`))
-  .catch(console.log);
-```
-
 Connecting to MongoDB from an async function:
 ```javascript
 import mongo from 'mongo-async';
@@ -23,6 +12,17 @@ async function start() {
   let db = await mongo.connect(mongoUrl);
   // do something with the db
 }
+```
+
+Connecting to MongoDB outside of an async function:
+```javascript
+import mongo from 'mongo-async';
+const mongoUrl = 'mongodb://localhost/mydb'
+
+mongo
+  .connect(mongoUrl)
+  .then(db => console.log(`Connected to ${config.mongodb}`))
+  .catch(console.log);
 ```
 
 Using a database:
@@ -45,5 +45,6 @@ async function doStuff() {
 ```
 
 Future enhancements...
-* Named connections instead of one singletone
+* Make connect idempodent
+* Allowed multiple connections, preferably by named connections
 * await for db/collection methods that resolve when the connection has been established
