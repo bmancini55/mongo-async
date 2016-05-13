@@ -1,17 +1,17 @@
 {
   "name": "mongo-async",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Mongo async wrapper",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build",
-    "test": "mocha --compilers js:babel-register --require babel-polyfill --recursive \"src/**/*.spec.js\""
+    "test": "mocha --compilers js:babel-register --require babel-regenerator-runtime --recursive \"src/**/*.spec.js\""
   },
   "author": "Brian <bmancini@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.8.0",
+    "babel-regenerator-runtime": "^6.5.0",
     "bluebird": "^3.1.2",
     "mongodb": "^2.1.4"
   },
