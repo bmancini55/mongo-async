@@ -28,10 +28,10 @@ mongo
 Using a database:
 ```javascript
 import mongo from 'mongo-async';
-async function doStuff() { 
-  let db = mongo.db();
-  let collection = db.collection('items';
-  // do stuff with collection
+async function doStuff() {
+  let db = await mongo.db();
+
+  // do stuff with db
 }
 ```
 
@@ -39,12 +39,12 @@ Or using a collection:
 ```javascript
 import mongo from 'mongo-async';
 async function doStuff() {
-  let collection = mongo.collection('items');
+  let collection = await mongo.collection('items');
+
   // do stuff with collection
 }
 ```
 
 Future enhancements...
 * Make connect idempodent
-* Allowed multiple connections, preferably by named connections
 * await for db/collection methods that resolve when the connection has been established
